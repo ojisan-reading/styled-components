@@ -6,6 +6,12 @@ import { EMPTY_OBJECT } from '../utils/empties';
 
 import type { Target } from '../types';
 
+/**
+ *　componentConstructorを実行し、その返り値にオプションを流し込む
+ * @param {*} componentConstructor ../models/StyledComponentが渡される
+ * @param {*} tag
+ * @param {*} options
+ */
 export default function constructWithOptions(
   componentConstructor: Function,
   tag: Target,
