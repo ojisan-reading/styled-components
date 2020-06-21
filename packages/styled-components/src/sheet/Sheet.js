@@ -23,6 +23,8 @@ const defaultOptions = {
 };
 
 /** Contains the main stylesheet logic for stringification and caching */
+
+/** StyleSheet */
 export default class StyleSheet implements Sheet {
   gs: GlobalStylesAllocationMap;
 

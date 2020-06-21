@@ -109,6 +109,9 @@ function useInjectedStyle<T>(
   return className;
 }
 
+/**
+ * JSXを返す. そのjsxにはstyleが詰め込まれる
+ */
 function useStyledComponentImpl<Config: {}, Instance>(
   forwardedComponent: StyledComponentWrapper<Config, Instance>,
   props: Object,
@@ -162,6 +165,7 @@ function useStyledComponentImpl<Config: {}, Instance>(
     }
   }
 
+  /** JSXにstyleを詰め込んでいる雰囲気 */
   if (props.style && attrs.style !== props.style) {
     propsForElement.style = { ...props.style, ...attrs.style };
   }
