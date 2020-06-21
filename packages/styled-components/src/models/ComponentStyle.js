@@ -12,6 +12,10 @@ import type { RuleSet, Stringifier } from '../types';
  ComponentStyle is all the CSS-specific stuff, not
  the React-specific stuff.
  */
+
+/**
+ * s-cのmodelがcomponentStyleという変数で作られる
+ */
 export default class ComponentStyle {
   baseHash: number;
 
@@ -28,6 +32,7 @@ export default class ComponentStyle {
     this.staticRulesId = '';
     this.isStatic = process.env.NODE_ENV === 'production' && isStaticRules(rules);
     this.componentId = componentId;
+    /** @疑問: s-cのhashってこれ？ */
     this.baseHash = hash(componentId);
 
     // NOTE: This registers the componentId, which ensures a consistent order
@@ -40,6 +45,13 @@ export default class ComponentStyle {
    * Hashes it, wraps the whole chunk in a .hash1234 {}
    * Returns the hash to be injected on render()
    * */
+
+  /**
+   * hash を返す
+   * @param {} executionContext
+   * @param {*} styleSheet
+   * @param {*} stylis
+   */
   generateAndInjectStyles(executionContext: Object, styleSheet: StyleSheet, stylis: Stringifier) {
     const { componentId } = this;
 

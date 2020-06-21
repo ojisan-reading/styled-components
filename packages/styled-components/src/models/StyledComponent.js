@@ -109,6 +109,9 @@ function useInjectedStyle<T>(
   return className;
 }
 
+/**
+ * JSXを返す. そのjsxにはstyleが詰め込まれる
+ */
 function useStyledComponentImpl<Config: {}, Instance>(
   forwardedComponent: StyledComponentWrapper<Config, Instance>,
   props: Object,
@@ -162,6 +165,7 @@ function useStyledComponentImpl<Config: {}, Instance>(
     }
   }
 
+  /** JSXにstyleを詰め込んでいる雰囲気 */
   if (props.style && attrs.style !== props.style) {
     propsForElement.style = { ...props.style, ...attrs.style };
   }
@@ -182,6 +186,12 @@ function useStyledComponentImpl<Config: {}, Instance>(
   return createElement(elementToBeCreated, propsForElement);
 }
 
+/**
+ * s-c の本体を返す
+ * @param {*} target
+ * @param {*} options
+ * @param {*} rules
+ */
 export default function createStyledComponent(
   target: Target | StyledComponentWrapper<*, *>,
   options: Object,
@@ -240,6 +250,7 @@ export default function createStyledComponent(
   let WrappedStyledComponent;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  /** s-cでref */
   const forwardRef = (props, ref) => useStyledComponentImpl(WrappedStyledComponent, props, ref);
 
   forwardRef.displayName = displayName;

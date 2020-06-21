@@ -25,6 +25,9 @@ export function useStyleSheet(): StyleSheet {
   return useContext(StyleSheetContext) || masterSheet;
 }
 
+/**
+ * @疑問: これは何をする関数？hash作る時にもこの存在が確認されている
+ */
 export function useStylis(): Stringifier {
   return useContext(StylisContext) || masterStylis;
 }
