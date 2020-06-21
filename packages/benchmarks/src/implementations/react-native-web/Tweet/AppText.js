@@ -12,7 +12,7 @@ class AppText extends PureComponent {
     fontStyle: PropTypes.oneOf(['normal', 'italic']),
     size: PropTypes.oneOf(['small', 'normal', 'large']),
     uppercase: PropTypes.bool,
-    weight: PropTypes.oneOf(['normal', 'bold'])
+    weight: PropTypes.oneOf(['normal', 'bold']),
   };
 
   render() {
@@ -25,7 +25,7 @@ class AppText extends PureComponent {
       fontStyle && fontStyles[fontStyle],
       size && sizeStyles[size],
       weight && weightStyles[weight],
-      uppercase === true && styles.uppercase
+      uppercase === true && styles.uppercase,
     ];
 
     return <Text {...other} style={style} />;
@@ -38,71 +38,71 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.normal,
     fontWeight: 'normal',
     lineHeight: theme.createLength(theme.lineHeight),
-    wordWrap: 'break-word'
+    wordWrap: 'break-word',
   },
   uppercase: {
-    textTransform: 'uppercase'
-  }
+    textTransform: 'uppercase',
+  },
 });
 
 const alignStyles = StyleSheet.create({
   center: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   left: {
-    textAlign: 'left'
+    textAlign: 'left',
   },
   right: {
-    textAlign: 'right'
-  }
+    textAlign: 'right',
+  },
 });
 
 const colorStyles = StyleSheet.create({
   blue: {
-    color: theme.colors.blue
+    color: theme.colors.blue,
   },
   deepGray: {
-    color: theme.colors.deepGray
+    color: theme.colors.deepGray,
   },
   normal: {
-    color: theme.colors.textBlack
+    color: theme.colors.textBlack,
   },
   red: {
-    color: theme.colors.red
+    color: theme.colors.red,
   },
   white: {
-    color: theme.colors.white
-  }
+    color: theme.colors.white,
+  },
 });
 
 const fontStyles = StyleSheet.create({
   normal: {
-    fontStyle: 'normal'
+    fontStyle: 'normal',
   },
   italic: {
-    fontStyle: 'italic'
-  }
+    fontStyle: 'italic',
+  },
 });
 
 const sizeStyles = StyleSheet.create({
   small: {
-    fontSize: theme.fontSize.small
+    fontSize: theme.fontSize.small,
   },
   normal: {
-    fontSize: theme.fontSize.normal
+    fontSize: theme.fontSize.normal,
   },
   large: {
-    fontSize: theme.fontSize.large
-  }
+    fontSize: theme.fontSize.large,
+  },
 });
 
 const weightStyles = StyleSheet.create({
   normal: {
-    fontWeight: '400'
+    fontWeight: '400',
   },
   bold: {
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });
 
 export default AppText;

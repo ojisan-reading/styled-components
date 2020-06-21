@@ -12,7 +12,7 @@ const colors = {
   faintGray: '#F5F8FA',
   gray: '#AAB8C2',
   lightGray: '#CCD6DD',
-  textBlack: '#14171A'
+  textBlack: '#14171A',
 };
 
 const fontSize = {
@@ -20,7 +20,7 @@ const fontSize = {
   // font scale
   small: '0.85rem',
   normal: '1rem',
-  large: '1.25rem'
+  large: '1.25rem',
 };
 
 const theme = {
@@ -34,7 +34,7 @@ const theme = {
   spaceY: 1.3125,
   createLength(num, unit) {
     return `${num}${unit}`;
-  }
+  },
 };
 
 export default theme;

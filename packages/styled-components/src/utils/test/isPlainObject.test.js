@@ -1,6 +1,6 @@
 // @flow
-import vm from "vm";
-import React from "react";
+import vm from 'vm';
+import React from 'react';
 import isPlainObject from '../isPlainObject';
 
 it('returns true for an object literal', () => {
@@ -25,7 +25,7 @@ it('returns false for an array', () => {
 });
 
 it('returns false for a React component', () => {
-  class Foo extends React.Component {};
+  class Foo extends React.Component {}
   expect(isPlainObject(Foo)).toEqual(false);
 });
 

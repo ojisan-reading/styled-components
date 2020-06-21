@@ -11,9 +11,9 @@ function assertStyledComponent(styledComponent) {
     !(styledComponent.styledComponentId && typeof styledComponent.styledComponentId === 'string')
   ) {
     throw new Error(
-      `${styledComponent.displayName ||
-        styledComponent.name ||
-        'Component'} is not a styled component.`
+      `${
+        styledComponent.displayName || styledComponent.name || 'Component'
+      } is not a styled component.`
     );
   }
 }

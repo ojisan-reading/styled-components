@@ -11,7 +11,7 @@ const IconReply = props =>
       </g>
     ),
     style: [styles.icon, props.style],
-    viewBox: '0 0 62 72'
+    viewBox: '0 0 62 72',
   });
 
 IconReply.metadata = { height: 72, width: 62 };

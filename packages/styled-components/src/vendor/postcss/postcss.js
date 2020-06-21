@@ -108,7 +108,7 @@ function postcss(...plugins) {
  * @return {Plugin} PostCSS plugin
  */
 postcss.plugin = function plugin(name, initializer) {
-  const creator = function(...args) {
+  const creator = function (...args) {
     const transformer = initializer(...args);
     transformer.postcssPlugin = name;
     transformer.postcssVersion = new Processor().version;
@@ -123,7 +123,7 @@ postcss.plugin = function plugin(name, initializer) {
     },
   });
 
-  creator.process = function(root, opts) {
+  creator.process = function (root, opts) {
     return postcss([creator(opts)]).process(root, opts);
   };
 

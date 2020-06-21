@@ -11,11 +11,11 @@ class UserNames extends PureComponent {
     layout: PropTypes.oneOf(['nowrap', 'stack']),
     onPress: PropTypes.func,
     screenName: PropTypes.string,
-    style: ViewPropTypes.style
+    style: ViewPropTypes.style,
   };
 
   static defaultProps = {
-    layout: 'nowrap'
+    layout: 'nowrap',
   };
 
   render() {
@@ -41,12 +41,12 @@ class UserNames extends PureComponent {
 
 const styles = StyleSheet.create({
   root: {
-    display: 'inline-block'
+    display: 'inline-block',
   },
   screenName: {
     unicodeBidi: 'embed',
-    writingDirection: 'ltr'
-  }
+    writingDirection: 'ltr',
+  },
 });
 
 export default UserNames;

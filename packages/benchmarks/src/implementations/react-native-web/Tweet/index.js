@@ -13,7 +13,7 @@ export class Tweet extends Component {
   static displayName = 'Tweet';
 
   static propTypes = {
-    tweet: PropTypes.object.isRequired
+    tweet: PropTypes.object.isRequired,
   };
 
   render() {
@@ -71,15 +71,15 @@ export class Tweet extends Component {
                   name: 'retweet',
                   label: 'Retweet',
                   count: tweet.retweet_count,
-                  highlighted: tweet.retweeted
+                  highlighted: tweet.retweeted,
                 },
                 {
                   name: 'like',
                   label: 'Like',
                   count: tweet.favorite_count,
-                  highlighted: tweet.favorited
+                  highlighted: tweet.favorited,
                 },
-                { name: 'directMessage', label: 'Direct Message' }
+                { name: 'directMessage', label: 'Direct Message' },
               ]}
               style={styles.actionBar}
             />
@@ -93,52 +93,52 @@ export class Tweet extends Component {
 const styles = StyleSheet.create({
   root: {
     paddingVertical: theme.createLength(theme.spaceY * 0.75, 'rem'),
-    paddingHorizontal: theme.createLength(theme.spaceX, 'rem')
+    paddingHorizontal: theme.createLength(theme.spaceX, 'rem'),
   },
   avatarColumn: {
     flexGrow: 1,
-    minWidth: 32
+    minWidth: 32,
   },
   bodyColumn: {
-    flexGrow: 7
+    flexGrow: 7,
   },
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   avatarLink: {
     display: 'block',
     flexShrink: 1,
     flexGrow: 0,
-    width: '100%'
+    width: '100%',
   },
   avatar: {
-    width: '100%'
+    width: '100%',
   },
   body: {
-    marginTop: '-0.15rem'
+    marginTop: '-0.15rem',
   },
   timestamp: {
     color: theme.colors.deepGray,
     marginLeft: theme.createLength(theme.spaceX, 'rem'),
     order: 1,
     textDecorationLine: 'none',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
   },
   actionBar: {
-    marginTop: theme.createLength(theme.spaceY * 0.5, 'rem')
+    marginTop: theme.createLength(theme.spaceY * 0.5, 'rem'),
   },
   richContent: {
     borderRadius: '0.35rem',
     marginTop: theme.createLength(theme.spaceY * 0.5, 'rem'),
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   media: {
     ...StyleSheet.absoluteFillObject,
     margin: 'auto',
     width: 'auto',
-    height: 'auto'
-  }
+    height: 'auto',
+  },
 });
 
 export default Tweet;

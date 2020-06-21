@@ -11,7 +11,9 @@ it('adds a px prefix if needed for properties that require a unit', () => {
 });
 
 it('does not add a px prefix for unitless properties', () => {
-  [['lineHeight', 1], ['flex', 2], ['fontWeight', 400]].forEach(([key, value]) =>
-    expect(addUnitIfNeeded(key, value)).toEqual(String(value))
-  );
+  [
+    ['lineHeight', 1],
+    ['flex', 2],
+    ['fontWeight', 400],
+  ].forEach(([key, value]) => expect(addUnitIfNeeded(key, value)).toEqual(String(value)));
 });

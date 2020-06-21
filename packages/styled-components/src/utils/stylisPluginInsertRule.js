@@ -20,7 +20,7 @@
  */
 /* eslint-disable */
 
-export default function(insertRule) {
+export default function (insertRule) {
   const delimiter = '/*|*/';
   const needle = `${delimiter}}`;
 

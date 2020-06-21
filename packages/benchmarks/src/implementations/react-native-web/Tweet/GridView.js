@@ -9,7 +9,7 @@ class GridView extends Component {
   static propTypes = {
     children: PropTypes.node,
     hasGap: PropTypes.bool,
-    style: ViewPropTypes.style
+    style: ViewPropTypes.style,
   };
 
   render() {
@@ -21,7 +21,7 @@ class GridView extends Component {
           return (
             child &&
             React.cloneElement(child, {
-              style: [child.props.style, styles.column, hasGap && styles.hasGapColumn]
+              style: [child.props.style, styles.column, hasGap && styles.hasGapColumn],
             })
           );
         })}
@@ -32,7 +32,7 @@ class GridView extends Component {
 
 const styles = StyleSheet.create({
   root: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   /**
    * 1. Distribute all space (rather than extra space)
@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
    */
   column: {
     flexBasis: 0, // 1
-    minWidth: 0 // 2
+    minWidth: 0, // 2
   },
   hasGap: {
-    marginHorizontal: theme.createLength(theme.spaceX * -0.5, 'rem')
+    marginHorizontal: theme.createLength(theme.spaceX * -0.5, 'rem'),
   },
   hasGapColumn: {
-    marginHorizontal: theme.createLength(theme.spaceX * 0.5, 'rem')
-  }
+    marginHorizontal: theme.createLength(theme.spaceX * 0.5, 'rem'),
+  },
 });
 
 export default GridView;

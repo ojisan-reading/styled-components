@@ -34,6 +34,8 @@ describe('useTheme', () => {
     );
 
     expect(wrapper.root.findByType(MyDivOne).props.theme).toEqual(mainTheme);
-    expect(wrapper.root.findByType(MyDivWithThemeContext).children[0].props.theme).toEqual(mainTheme);
+    expect(wrapper.root.findByType(MyDivWithThemeContext).children[0].props.theme).toEqual(
+      mainTheme
+    );
   });
 });

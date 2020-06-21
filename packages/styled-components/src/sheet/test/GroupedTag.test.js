@@ -12,21 +12,12 @@ beforeEach(() => {
 });
 
 it('inserts and retrieves rules by groups correctly', () => {
-  groupedTag.insertRules(2, [
-    '.g2-a {}',
-    '.g2-b {}'
-  ]);
+  groupedTag.insertRules(2, ['.g2-a {}', '.g2-b {}']);
 
   // Insert out of order into the right group
-  groupedTag.insertRules(1, [
-    '.g1-a {}',
-    '.g1-b {}'
-  ]);
+  groupedTag.insertRules(1, ['.g1-a {}', '.g1-b {}']);
 
-  groupedTag.insertRules(2, [
-    '.g2-c {}',
-    '.g2-d {}'
-  ]);
+  groupedTag.insertRules(2, ['.g2-c {}', '.g2-d {}']);
 
   expect(groupedTag.length).toBeGreaterThan(2);
   expect(tag.length).toBe(6);
@@ -35,8 +26,7 @@ it('inserts and retrieves rules by groups correctly', () => {
   expect(groupedTag.getGroup(0)).toBe('');
   expect(groupedTag.getGroup(1)).toBe('.g1-a {}/*!sc*/\n.g1-b {}/*!sc*/\n');
   expect(groupedTag.getGroup(2)).toBe(
-    '.g2-a {}/*!sc*/\n.g2-b {}/*!sc*/\n' +
-    '.g2-c {}/*!sc*/\n.g2-d {}/*!sc*/\n'
+    '.g2-a {}/*!sc*/\n.g2-b {}/*!sc*/\n' + '.g2-c {}/*!sc*/\n.g2-d {}/*!sc*/\n'
   );
 
   // Check some rules in the tag as well
@@ -56,10 +46,7 @@ it('inserts rules at correct indices if some rules are dropped', () => {
   const insertRule = jest.spyOn(tag, 'insertRule').mockImplementationOnce(() => false);
   const groupedTag = makeGroupedTag(tag);
 
-  groupedTag.insertRules(1, [
-    '.skipped {}',
-    '.inserted {}'
-  ]);
+  groupedTag.insertRules(1, ['.skipped {}', '.inserted {}']);
 
   expect(tag.length).toBe(1);
   expect(groupedTag.getGroup(1)).toBe('.inserted {}/*!sc*/\n');

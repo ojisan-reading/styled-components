@@ -7,7 +7,7 @@ class Provider extends React.Component {
   /* this mock context is necessary for reactxp to work without errors… ¯\_(ツ)_/¯ */
 
   static childContextTypes = {
-    focusManager: object
+    focusManager: object,
   };
 
   getChildContext() {
@@ -18,8 +18,8 @@ class Provider extends React.Component {
         restrictFocusWithin() {},
         removeFocusRestriction() {},
         limitFocusWithin() {},
-        removeFocusLimitation() {}
-      }
+        removeFocusLimitation() {},
+      },
     };
   }
 

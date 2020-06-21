@@ -8,11 +8,11 @@ class AspectRatio extends PureComponent {
   static propTypes = {
     children: PropTypes.any,
     ratio: PropTypes.number,
-    style: ViewPropTypes.style
+    style: ViewPropTypes.style,
   };
 
   static defaultProps = {
-    ratio: 1
+    ratio: 1,
   };
 
   render() {
@@ -30,12 +30,12 @@ class AspectRatio extends PureComponent {
 
 const styles = StyleSheet.create({
   root: {
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   shim: {
     display: 'block',
-    width: '100%'
-  }
+    width: '100%',
+  },
 });
 
 export default AspectRatio;

@@ -13,8 +13,8 @@ const Dot = ({ size, x, y, children, color }) => (
         borderBottomWidth: `${size / 2}px`,
         borderLeftWidth: `${size / 2}px`,
         marginLeft: `${x}px`,
-        marginTop: `${y}px`
-      }
+        marginTop: `${y}px`,
+      },
     ]}
   />
 );
@@ -28,8 +28,8 @@ const styles = {
     borderColor: 'transparent',
     borderStyle: 'solid',
     borderTopWidth: 0,
-    transform: 'translate(50%, 50%)'
-  })
+    transform: 'translate(50%, 50%)',
+  }),
 };
 
 export default Dot;

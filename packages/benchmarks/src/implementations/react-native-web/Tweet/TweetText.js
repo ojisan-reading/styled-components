@@ -10,7 +10,7 @@ class TweetText extends React.Component {
     displayMode: TweetTextPart.propTypes.displayMode,
     lang: string,
     numberOfLines: number,
-    textParts: array.isRequired
+    textParts: array.isRequired,
   };
 
   render() {

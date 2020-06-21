@@ -21,9 +21,7 @@ describe('outputSheet', () => {
     sheet.insertRules('idA', 'nameA', ['.a {}']);
     sheet.insertRules('idB', 'nameB', ['.b {}']);
 
-    const output = outputSheet(sheet)
-      .trim()
-      .split('/*!sc*/');
+    const output = outputSheet(sheet).trim().split('/*!sc*/');
 
     expect(output).toMatchInlineSnapshot(`
       Array [

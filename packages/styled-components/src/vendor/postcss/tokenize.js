@@ -239,12 +239,12 @@ export default function tokenize(input, options = {}) {
         code = css.charCodeAt(next + 1);
         if (
           escape &&
-          (code !== SLASH &&
-            code !== SPACE &&
-            code !== NEWLINE &&
-            code !== TAB &&
-            code !== CR &&
-            code !== FEED)
+          code !== SLASH &&
+          code !== SPACE &&
+          code !== NEWLINE &&
+          code !== TAB &&
+          code !== CR &&
+          code !== FEED
         ) {
           next += 1;
         }

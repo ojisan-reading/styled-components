@@ -16,7 +16,7 @@ const View = createComponent(
     position: 'relative',
     // fix flexbox bugs
     minHeight: '0px',
-    minWidth: '0px'
+    minWidth: '0px',
   }),
   'div'
 );

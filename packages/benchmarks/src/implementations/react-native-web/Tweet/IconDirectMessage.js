@@ -12,7 +12,7 @@ const IconDirectMessage = props =>
       </g>
     ),
     style: [styles.icon, props.style],
-    viewBox: '0 0 56 72'
+    viewBox: '0 0 56 72',
   });
 
 IconDirectMessage.metadata = { height: 72, width: 56 };

@@ -3,7 +3,7 @@ import { styled } from 'styletron-react';
 
 const View = styled('div', ({ style }) => ({
   ...viewStyle,
-  style
+  style,
 }));
 
 const viewStyle = {
@@ -20,7 +20,7 @@ const viewStyle = {
   position: 'relative',
   // fix flexbox bugs
   minHeight: '0px',
-  minWidth: '0px'
+  minWidth: '0px',
 };
 
 export default View;

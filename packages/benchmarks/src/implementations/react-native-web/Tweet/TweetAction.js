@@ -30,7 +30,7 @@ export default class TweetAction extends React.Component {
     displayMode: PropTypes.oneOf(['like', 'reply', 'retweet', 'directMessage']),
     highlighted: PropTypes.bool,
     onPress: PropTypes.func,
-    style: ViewPropTypes.style
+    style: ViewPropTypes.style,
   };
 
   render() {
@@ -42,7 +42,7 @@ export default class TweetAction extends React.Component {
           style={[
             styles.inner,
             displayMode === 'like' && highlighted && styles.likedColor,
-            displayMode === 'retweet' && highlighted && styles.retweetedColor
+            displayMode === 'retweet' && highlighted && styles.retweetedColor,
           ]}
         >
           {getIcon(displayMode, highlighted)}
@@ -58,21 +58,21 @@ const styles = StyleSheet.create({
     minHeight: theme.createLength(theme.lineHeight, 'rem'),
     overflow: 'visible',
     userSelect: 'none',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
   },
   inner: {
     alignItems: 'center',
     color: theme.colors.deepGray,
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   count: {
-    marginLeft: '0.25em'
+    marginLeft: '0.25em',
   },
   retweetedColor: {
-    color: theme.colors.green
+    color: theme.colors.green,
   },
   likedColor: {
-    color: theme.colors.red
-  }
+    color: theme.colors.red,
+  },
 });

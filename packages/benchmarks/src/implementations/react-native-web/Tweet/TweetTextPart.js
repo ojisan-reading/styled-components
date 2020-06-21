@@ -65,11 +65,11 @@ class TweetTextPart extends React.Component {
 
   static propTypes = {
     displayMode: PropTypes.oneOf(['links', 'no-links']),
-    part: PropTypes.object
+    part: PropTypes.object,
   };
 
   static defaultProps = {
-    displayMode: 'links'
+    displayMode: 'links',
   };
 
   render() {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   link: {
     color: theme.colors.blue,
     textDecorationLine: 'none',
-    unicodeBidi: 'embed'
+    unicodeBidi: 'embed',
   },
   twemoji: {
     display: 'inline-block',
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     width: '1.25em',
     paddingRight: '0.05em',
     paddingLeft: '0.1em',
-    textAlignVertical: '-0.2em'
-  }
+    textAlignVertical: '-0.2em',
+  },
 });
 
 export default TweetTextPart;

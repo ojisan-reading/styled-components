@@ -11,7 +11,7 @@ const IconHeart = props =>
       </g>
     ),
     style: [styles.icon, props.style],
-    viewBox: '0 0 54 72'
+    viewBox: '0 0 54 72',
   });
 
 IconHeart.metadata = { height: 72, width: 54 };

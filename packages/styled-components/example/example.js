@@ -27,7 +27,7 @@ export default () => {
   return class Example extends React.Component {
     render() {
       return (
-        <ThemeProvider theme={{palevioletred: '#db7093', papayawhip: '#ffefd5'}}>
+        <ThemeProvider theme={{ palevioletred: '#db7093', papayawhip: '#ffefd5' }}>
           <Wrapper>
             <GlobalStyle />
             <Title>Hello World, this is my first styled component!</Title>

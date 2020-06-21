@@ -10,7 +10,7 @@ import merge from 'merge-anything';
 
 //
 
-var interleave = function(strings, interpolations) {
+var interleave = function (strings, interpolations) {
   var result = [strings[0]];
 
   for (var i = 0, len = interpolations.length; i < len; i += 1) {
@@ -22,10 +22,10 @@ var interleave = function(strings, interpolations) {
 
 var _typeof =
   typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
-    ? function(obj) {
+    ? function (obj) {
         return typeof obj;
       }
-    : function(obj) {
+    : function (obj) {
         return obj &&
           typeof Symbol === 'function' &&
           obj.constructor === Symbol &&
@@ -34,13 +34,13 @@ var _typeof =
           : typeof obj;
       };
 
-var classCallCheck = function(instance, Constructor) {
+var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError('Cannot call a class as a function');
   }
 };
 
-var createClass = (function() {
+var createClass = (function () {
   function defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
       var descriptor = props[i];
@@ -51,7 +51,7 @@ var createClass = (function() {
     }
   }
 
-  return function(Constructor, protoProps, staticProps) {
+  return function (Constructor, protoProps, staticProps) {
     if (protoProps) defineProperties(Constructor.prototype, protoProps);
     if (staticProps) defineProperties(Constructor, staticProps);
     return Constructor;
@@ -60,7 +60,7 @@ var createClass = (function() {
 
 var _extends =
   Object.assign ||
-  function(target) {
+  function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -74,7 +74,7 @@ var _extends =
     return target;
   };
 
-var inherits = function(subClass, superClass) {
+var inherits = function (subClass, superClass) {
   if (typeof superClass !== 'function' && superClass !== null) {
     throw new TypeError(
       'Super expression must either be null or a function, not ' + typeof superClass
@@ -95,7 +95,7 @@ var inherits = function(subClass, superClass) {
       : (subClass.__proto__ = superClass);
 };
 
-var objectWithoutProperties = function(obj, keys) {
+var objectWithoutProperties = function (obj, keys) {
   var target = {};
 
   for (var i in obj) {
@@ -107,7 +107,7 @@ var objectWithoutProperties = function(obj, keys) {
   return target;
 };
 
-var possibleConstructorReturn = function(self, call) {
+var possibleConstructorReturn = function (self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
@@ -116,7 +116,7 @@ var possibleConstructorReturn = function(self, call) {
 };
 
 //
-var isPlainObject = function(x) {
+var isPlainObject = function (x) {
   return (
     (typeof x === 'undefined' ? 'undefined' : _typeof(x)) === 'object' && x.constructor === Object
   );
@@ -218,7 +218,7 @@ function format() {
     b.push(arguments.length <= c ? undefined : arguments[c]);
   }
 
-  b.forEach(function(d) {
+  b.forEach(function (d) {
     a = a.replace(/%[a-z]/, d);
   });
 
@@ -230,7 +230,7 @@ function format() {
  * in production mode.
  */
 
-var StyledComponentsError = (function(_Error) {
+var StyledComponentsError = (function (_Error) {
   inherits(StyledComponentsError, _Error);
 
   function StyledComponentsError(code) {
@@ -270,14 +270,14 @@ var StyledComponentsError = (function(_Error) {
 //
 var SC_COMPONENT_ID = /^[^\S\n]*?\/\* sc-component-id:\s*(\S+)\s+\*\//gm;
 
-var extractComps = function(maybeCSS) {
+var extractComps = function (maybeCSS) {
   var css = '' + (maybeCSS || ''); // Definitely a string, and a clone
   var existingComponents = [];
-  css.replace(SC_COMPONENT_ID, function(match, componentId, matchIndex) {
+  css.replace(SC_COMPONENT_ID, function (match, componentId, matchIndex) {
     existingComponents.push({ componentId: componentId, matchIndex: matchIndex });
     return match;
   });
-  return existingComponents.map(function(_ref, i) {
+  return existingComponents.map(function (_ref, i) {
     var componentId = _ref.componentId,
       matchIndex = _ref.matchIndex;
 
@@ -325,7 +325,7 @@ var returnRulesPlugin = function returnRulesPlugin(context) {
   }
 };
 
-var parseRulesPlugin = _insertRulePlugin(function(rule) {
+var parseRulesPlugin = _insertRulePlugin(function (rule) {
   parsingRules.push(rule);
 });
 
@@ -396,7 +396,7 @@ function stringifyRules(rules, selector, prefix) {
 //
 /* eslint-disable camelcase, no-undef */
 
-var getNonce = function() {
+var getNonce = function () {
   return typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;
 };
 
@@ -424,7 +424,7 @@ var resetIdNames = function resetIdNames(names, id) {
 
 /* factory for a names dictionary checking the existance of an ID:name pairing */
 var hasNameForId = function hasNameForId(names) {
-  return function(id, name) {
+  return function (id, name) {
     return names[id] !== undefined && names[id][name];
   };
 };
@@ -546,7 +546,7 @@ var makeStyleTag = function makeStyleTag(target, tagEl, insertBefore) {
 
 /* takes a css factory function and outputs an html styled tag factory */
 var wrapAsHtmlTag = function wrapAsHtmlTag(css, names) {
-  return function(additionalAttrs) {
+  return function (additionalAttrs) {
     var nonce = getNonce();
     var attrs = [
       nonce && 'nonce="' + nonce + '"',
@@ -562,13 +562,14 @@ var wrapAsHtmlTag = function wrapAsHtmlTag(css, names) {
 
 /* takes a css factory function and outputs an element factory */
 var wrapAsElement = function wrapAsElement(css, names) {
-  return function() {
+  return function () {
     var _props;
 
-    var props = ((_props = {}),
-    (_props[SC_ATTR] = stringifyNames(names)),
-    (_props[SC_VERSION_ATTR] = '4.3.1'),
-    _props);
+    var props =
+      ((_props = {}),
+      (_props[SC_ATTR] = stringifyNames(names)),
+      (_props[SC_VERSION_ATTR] = '4.3.1'),
+      _props);
 
     var nonce = getNonce();
     if (nonce) {
@@ -585,7 +586,7 @@ var wrapAsElement = function wrapAsElement(css, names) {
 };
 
 var getIdsFromMarkersFactory = function getIdsFromMarkersFactory(markers) {
-  return function() {
+  return function () {
     return Object.keys(markers);
   };
 };
@@ -916,7 +917,7 @@ if (IS_BROWSER) {
 var sheetRunningId = 0;
 var master = void 0;
 
-var StyleSheet = (function() {
+var StyleSheet = (function () {
   /* a map from ids to tags */
 
   /* deferred rules for a given id */
@@ -945,7 +946,7 @@ var StyleSheet = (function() {
     var forceServer = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     classCallCheck(this, StyleSheet);
 
-    this.getImportRuleTag = function() {
+    this.getImportRuleTag = function () {
       var importRuleTag = _this.importRuleTag;
 
       if (importRuleTag !== undefined) {
@@ -1059,7 +1060,7 @@ var StyleSheet = (function() {
     this.clones.push(sheet);
 
     /* clone all tags */
-    sheet.tags = this.tags.map(function(tag) {
+    sheet.tags = this.tags.map(function (tag) {
       var ids = tag.getIds();
       var newTag = tag.clone();
 
@@ -1083,7 +1084,7 @@ var StyleSheet = (function() {
   StyleSheet.prototype.sealAllTags = function sealAllTags() {
     this.capacity = 1;
 
-    this.tags.forEach(function(tag) {
+    this.tags.forEach(function (tag) {
       // eslint-disable-next-line no-param-reassign
       tag.sealed = true;
     });
@@ -1201,7 +1202,7 @@ var StyleSheet = (function() {
 
   StyleSheet.prototype.toHTML = function toHTML() {
     return this.tags
-      .map(function(tag) {
+      .map(function (tag) {
         return tag.toHTML();
       })
       .join('');
@@ -1210,7 +1211,7 @@ var StyleSheet = (function() {
   StyleSheet.prototype.toReactElements = function toReactElements() {
     var id = this.id;
 
-    return this.tags.map(function(tag, i) {
+    return this.tags.map(function (tag, i) {
       var key = 'sc-' + id + '-' + i;
       return cloneElement(tag.toElement(), { key: key });
     });
@@ -1237,19 +1238,19 @@ var StyleSheet = (function() {
 
 //
 
-var Keyframes = (function() {
+var Keyframes = (function () {
   function Keyframes(name, rules) {
     var _this = this;
 
     classCallCheck(this, Keyframes);
 
-    this.inject = function(styleSheet) {
+    this.inject = function (styleSheet) {
       if (!styleSheet.hasNameForId(_this.id, _this.name)) {
         styleSheet.inject(_this.id, _this.rules, _this.name);
       }
     };
 
-    this.toString = function() {
+    this.toString = function () {
       throw new StyledComponentsError(12, String(_this.name));
     };
 
@@ -1293,10 +1294,7 @@ var msPattern = /^ms-/;
  * @return {string}
  */
 function hyphenateStyleName(string) {
-  return string
-    .replace(uppercasePattern, '-$1')
-    .toLowerCase()
-    .replace(msPattern, '-ms-');
+  return string.replace(uppercasePattern, '-$1').toLowerCase().replace(msPattern, '-ms-');
 }
 
 //
@@ -1329,7 +1327,7 @@ var objToCssArray = function objToCssArray(obj, prevKey) {
   var rules = [];
   var keys = Object.keys(obj);
 
-  keys.forEach(function(key) {
+  keys.forEach(function (key) {
     if (!isFalsish(obj[key])) {
       if (isPlainObject(obj[key])) {
         rules.push.apply(rules, objToCssArray(obj[key], key));
@@ -1436,12 +1434,12 @@ function constructWithOptions(componentConstructor, tag) {
   };
 
   /* If config methods are called, wrap up a new template function and merge options */
-  templateFunction.withConfig = function(config) {
+  templateFunction.withConfig = function (config) {
     return constructWithOptions(componentConstructor, tag, _extends({}, options, config));
   };
 
   /* Modify/inject new props at runtime */
-  templateFunction.attrs = function(attrs) {
+  templateFunction.attrs = function (attrs) {
     return constructWithOptions(
       componentConstructor,
       tag,
@@ -1537,7 +1535,7 @@ function isStaticRules(rules, attrs) {
   }
 
   if (
-    attrs.some(function(x) {
+    attrs.some(function (x) {
       return isFunction(x) || hasFunctionObjectKey(x);
     })
   )
@@ -1561,7 +1559,7 @@ var hasher = function hasher(str) {
  the React-specific stuff.
  */
 
-var ComponentStyle = (function() {
+var ComponentStyle = (function () {
   function ComponentStyle(rules, attrs, componentId) {
     classCallCheck(this, ComponentStyle);
 
@@ -1622,11 +1620,11 @@ var ComponentStyle = (function() {
 
 var LIMIT = 200;
 
-var createWarnTooManyClasses = function(displayName) {
+var createWarnTooManyClasses = function (displayName) {
   var generatedClasses = {};
   var warningSeen = false;
 
-  return function(className) {
+  return function (className) {
     if (!warningSeen) {
       generatedClasses[className] = true;
       if (Object.keys(generatedClasses).length >= LIMIT) {
@@ -1656,7 +1654,7 @@ var createWarnTooManyClasses = function(displayName) {
 
 //
 
-var determineTheme = function(props, fallbackTheme) {
+var determineTheme = function (props, fallbackTheme) {
   var defaultProps =
     arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : EMPTY_OBJECT;
 
@@ -1730,19 +1728,20 @@ var KNOWN_STATICS = {
   arity: true,
 };
 
-var TYPE_STATICS = ((_TYPE_STATICS = {}),
-(_TYPE_STATICS[ForwardRef] = {
-  $$typeof: true,
-  render: true,
-}),
-_TYPE_STATICS);
+var TYPE_STATICS =
+  ((_TYPE_STATICS = {}),
+  (_TYPE_STATICS[ForwardRef] = {
+    $$typeof: true,
+    render: true,
+  }),
+  _TYPE_STATICS);
 
 var defineProperty$1 = Object.defineProperty,
   getOwnPropertyNames = Object.getOwnPropertyNames,
   _Object$getOwnPropert = Object.getOwnPropertySymbols,
   getOwnPropertySymbols =
     _Object$getOwnPropert === undefined
-      ? function() {
+      ? function () {
           return [];
         }
       : _Object$getOwnPropert,
@@ -1813,10 +1812,10 @@ function isDerivedReactComponent(fn) {
 
 //
 // Helper to call a given function, only once
-var once = function(cb) {
+var once = function (cb) {
   var called = false;
 
-  return function() {
+  return function () {
     if (!called) {
       called = true;
       cb.apply(undefined, arguments);
@@ -1834,7 +1833,7 @@ var ThemeConsumer = ThemeContext.Consumer;
  * Provide a theme to an entire react component tree via context
  */
 
-var ThemeProvider = (function(_Component) {
+var ThemeProvider = (function (_Component) {
   inherits(ThemeProvider, _Component);
 
   function ThemeProvider(props) {
@@ -1906,7 +1905,7 @@ var ThemeProvider = (function(_Component) {
 
 var CLOSING_TAG_R = /^\s*<\/[a-z]/i;
 
-var ServerStyleSheet = (function() {
+var ServerStyleSheet = (function () {
   function ServerStyleSheet() {
     classCallCheck(this, ServerStyleSheet);
 
@@ -1996,11 +1995,11 @@ var ServerStyleSheet = (function() {
       },
     });
 
-    readableStream.on('end', function() {
+    readableStream.on('end', function () {
       return _this.seal();
     });
 
-    readableStream.on('error', function(err) {
+    readableStream.on('error', function (err) {
       _this.seal();
 
       // forward the error to the transform stream
@@ -2018,7 +2017,7 @@ var ServerStyleSheet = (function() {
 var StyleSheetContext = createContext();
 var StyleSheetConsumer = StyleSheetContext.Consumer;
 
-var StyleSheetManager = (function(_Component) {
+var StyleSheetManager = (function (_Component) {
   inherits(StyleSheetManager, _Component);
 
   function StyleSheetManager(props) {
@@ -2090,7 +2089,7 @@ function generateId(_ComponentStyle, _displayName, parentComponentId) {
 
 // $FlowFixMe
 
-var StyledComponent = (function(_Component) {
+var StyledComponent = (function (_Component) {
   inherits(StyledComponent, _Component);
 
   function StyledComponent() {
@@ -2104,7 +2103,7 @@ var StyledComponent = (function(_Component) {
     _this.renderInner = _this.renderInner.bind(_this);
 
     if (process.env.NODE_ENV !== 'production') {
-      _this.warnInnerRef = once(function(displayName) {
+      _this.warnInnerRef = once(function (displayName) {
         return (
           // eslint-disable-next-line no-console
           console.warn(
@@ -2115,7 +2114,7 @@ var StyledComponent = (function(_Component) {
         );
       });
 
-      _this.warnAttrsFnObjectKeyDeprecated = once(function(key, displayName) {
+      _this.warnAttrsFnObjectKeyDeprecated = once(function (key, displayName) {
         return (
           // eslint-disable-next-line no-console
           console.warn(
@@ -2129,7 +2128,7 @@ var StyledComponent = (function(_Component) {
         );
       });
 
-      _this.warnNonStyledComponentAttrsObjectKey = once(function(key, displayName) {
+      _this.warnNonStyledComponentAttrsObjectKey = once(function (key, displayName) {
         return (
           // eslint-disable-next-line no-console
           console.warn(
@@ -2241,7 +2240,7 @@ var StyledComponent = (function(_Component) {
 
     this.attrs = {};
 
-    attrs.forEach(function(attrDef) {
+    attrs.forEach(function (attrDef) {
       var resolvedAttrDef = attrDef;
       var attrDefWasFn = false;
       var attr = void 0;
@@ -2418,7 +2417,7 @@ function createStyledComponent(target, options, rules) {
   }
 
   // $FlowFixMe
-  WrappedStyledComponent.toString = function() {
+  WrappedStyledComponent.toString = function () {
     return '.' + WrappedStyledComponent.styledComponentId;
   };
 
@@ -2588,13 +2587,13 @@ var styled = function styled(tag) {
 };
 
 // Shorthands for all valid HTML Elements
-domElements.forEach(function(domElement) {
+domElements.forEach(function (domElement) {
   styled[domElement] = styled(domElement);
 });
 
 //
 
-var GlobalStyle = (function() {
+var GlobalStyle = (function () {
   function GlobalStyle(rules, componentId) {
     classCallCheck(this, GlobalStyle);
 
@@ -2652,7 +2651,7 @@ function createGlobalStyle(strings) {
   var id = 'sc-global-' + murmurhash(JSON.stringify(rules));
   var style = new GlobalStyle(rules, id);
 
-  var GlobalStyleComponent = (function(_React$Component) {
+  var GlobalStyleComponent = (function (_React$Component) {
     inherits(GlobalStyleComponent, _React$Component);
 
     function GlobalStyleComponent(props) {
@@ -2707,7 +2706,7 @@ function createGlobalStyle(strings) {
         );
       }
 
-      return React.createElement(StyleSheetConsumer, null, function(styleSheet) {
+      return React.createElement(StyleSheetConsumer, null, function (styleSheet) {
         _this2.styleSheet = styleSheet || StyleSheet.master;
 
         var globalStyle = _this2.state.globalStyle;
@@ -2717,7 +2716,7 @@ function createGlobalStyle(strings) {
 
           return null;
         } else {
-          return React.createElement(ThemeConsumer, null, function(theme) {
+          return React.createElement(ThemeConsumer, null, function (theme) {
             // $FlowFixMe
             var defaultProps = _this2.constructor.defaultProps;
 
@@ -2780,9 +2779,9 @@ function keyframes(strings) {
 
 //
 
-var withTheme = function(Component$$1) {
-  var WithTheme = React.forwardRef(function(props, ref) {
-    return React.createElement(ThemeConsumer, null, function(theme) {
+var withTheme = function (Component$$1) {
+  var WithTheme = React.forwardRef(function (props, ref) {
+    return React.createElement(ThemeConsumer, null, function (theme) {
       // $FlowFixMe
       var defaultProps = Component$$1.defaultProps;
 

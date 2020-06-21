@@ -1,12 +1,7 @@
 import fs from 'fs';
 import React from 'react';
-import {
-  renderToString,
-  renderToNodeStream
-} from 'react-dom/server';
-import {
-  ServerStyleSheet
-} from '..';
+import { renderToString, renderToNodeStream } from 'react-dom/server';
+import { ServerStyleSheet } from '..';
 import getExample from './example';
 
 const path = require('path');
@@ -14,9 +9,9 @@ const { exec } = require('child_process');
 const Express = require('express');
 const watch = require('node-watch');
 
-const HTML = fs.readFileSync(`${__dirname  }/index.html`).toString();
+const HTML = fs.readFileSync(`${__dirname}/index.html`).toString();
 
-const srcPath = `${__dirname.split('/example')[0]  }/src`;
+const srcPath = `${__dirname.split('/example')[0]}/src`;
 
 const hotBuild = () =>
   exec('npm run build:dist', (err, stdout, stderr) => {
@@ -46,7 +41,7 @@ app.get('/ssr.html', (req, res) => {
   const Example = getExample();
 
   const sheet = new ServerStyleSheet();
-  const html = renderToString(sheet.collectStyles( <Example /> ));
+  const html = renderToString(sheet.collectStyles(<Example />));
   const css = sheet.getStyleTags();
   res.send(HTML.replace(/<!-- SSR:HTML -->/, html).replace(/<!-- SSR:CSS -->/, css));
 });
@@ -56,20 +51,16 @@ app.get('/streaming-ssr.html', (req, res) => {
 
   const Example = getExample();
 
-
   const sheet = new ServerStyleSheet();
-  const jsx = sheet.collectStyles( <Example /> );
+  const jsx = sheet.collectStyles(<Example />);
   const stream = sheet.interleaveWithNodeStream(renderToNodeStream(jsx));
 
-  stream.pipe(
-    res, {
-      end: false
-    }
-  );
+  stream.pipe(res, {
+    end: false,
+  });
 
   stream.on('end', () => res.end('</body></html>'));
 });
-
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

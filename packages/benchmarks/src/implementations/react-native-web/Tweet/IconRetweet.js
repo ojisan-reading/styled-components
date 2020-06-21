@@ -11,7 +11,7 @@ const IconRetweet = props =>
       </g>
     ),
     style: [styles.icon, props.style],
-    viewBox: '0 0 74 72'
+    viewBox: '0 0 74 72',
   });
 
 IconRetweet.metadata = { height: 72, width: 74 };

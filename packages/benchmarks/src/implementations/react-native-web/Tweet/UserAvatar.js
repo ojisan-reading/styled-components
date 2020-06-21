@@ -11,11 +11,11 @@ class UserAvatar extends PureComponent {
     accessibilityLabel: PropTypes.string,
     circle: PropTypes.bool,
     style: ViewPropTypes.style,
-    uri: PropTypes.string
+    uri: PropTypes.string,
   };
 
   static defaultProps = {
-    circle: false
+    circle: false,
   };
 
   render() {
@@ -49,17 +49,17 @@ const nativeProps = { style: { backgroundColor: '#fff' } };
 
 const styles = StyleSheet.create({
   root: {
-    borderRadius: '0.35rem'
+    borderRadius: '0.35rem',
   },
   circle: {
-    borderRadius: '9999px'
+    borderRadius: '9999px',
   },
   image: {
     backgroundColor: theme.colors.fadedGray,
     display: 'block',
     height: '100%',
-    width: '100%'
-  }
+    width: '100%',
+  },
 });
 
 export default UserAvatar;

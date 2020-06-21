@@ -13,10 +13,10 @@ export default class TweetActionsBar extends PureComponent {
         label: PropTypes.string,
         highlighted: PropTypes.bool,
         name: PropTypes.oneOf(actionNames).isRequired,
-        onPress: PropTypes.func
+        onPress: PropTypes.func,
       })
     ),
-    style: ViewPropTypes.style
+    style: ViewPropTypes.style,
   };
 
   render() {
@@ -43,10 +43,10 @@ export default class TweetActionsBar extends PureComponent {
 
 const styles = StyleSheet.create({
   root: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   action: {
     display: 'block',
-    marginRight: '10%'
-  }
+    marginRight: '10%',
+  },
 });

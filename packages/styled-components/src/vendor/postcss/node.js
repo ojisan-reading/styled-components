@@ -17,7 +17,7 @@ import warnOnce from './warn-once';
  * @property {position} end   - The ending position of the node’s source
  */
 
-const cloneNode = function(obj, parent) {
+const cloneNode = function (obj, parent) {
   const cloned = new obj.constructor();
 
   for (const i in obj) {

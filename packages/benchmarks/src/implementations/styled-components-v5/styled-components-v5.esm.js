@@ -17,7 +17,7 @@ import hoist from 'hoist-non-react-statics';
 function _extends() {
   _extends =
     Object.assign ||
-    function(target) {
+    function (target) {
       for (let i = 1; i < arguments.length; i++) {
         const source = arguments[i];
 
@@ -38,7 +38,8 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   const target = {};
   const sourceKeys = Object.keys(source);
-  let key; let i;
+  let key;
+  let i;
 
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
@@ -50,7 +51,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 }
 
 //
-const interleave = function(strings, interpolations) {
+const interleave = function (strings, interpolations) {
   const result = [strings[0]];
 
   for (let i = 0, len = interpolations.length; i < len; i += 1) {
@@ -61,7 +62,7 @@ const interleave = function(strings, interpolations) {
 };
 
 //
-const isPlainObject = function(x) {
+const isPlainObject = function (x) {
   return typeof x === 'object' && x.constructor === Object;
 };
 
@@ -124,7 +125,7 @@ const ELEMENT_TYPE = 1;
 /** Find last style element if any inside target */
 
 const findLastStyleTag = function findLastStyleTag(target) {
-  const {childNodes} = target;
+  const { childNodes } = target;
 
   for (let i = childNodes.length; i >= 0; i--) {
     const child = childNodes[i];
@@ -139,7 +140,7 @@ const findLastStyleTag = function findLastStyleTag(target) {
 /** Create a style element inside `target` or <head> after the last */
 
 const makeStyleTag = function makeStyleTag(target) {
-  const {head} = document;
+  const { head } = document;
   const parent = target || head;
   const style = document.createElement('style');
   const prevStyle = findLastStyleTag(parent);
@@ -159,7 +160,7 @@ const getSheet = function getSheet(tag) {
   } // Avoid Firefox quirk where the style element might not have a sheet property
 
   const _document = document;
-    const {styleSheets} = _document;
+  const { styleSheets } = _document;
 
   for (let i = 0, l = styleSheets.length; i < l; i++) {
     const sheet = styleSheets[i];
@@ -176,9 +177,9 @@ const getSheet = function getSheet(tag) {
 /** Create a CSSStyleSheet-like tag depending on the environment */
 
 const makeTag = function makeTag(_ref) {
-  const {isServer} = _ref;
-    const {useCSSOMInjection} = _ref;
-    const {target} = _ref;
+  const { isServer } = _ref;
+  const { useCSSOMInjection } = _ref;
+  const { target } = _ref;
 
   if (isServer) {
     return new VirtualTag(target);
@@ -190,7 +191,7 @@ const makeTag = function makeTag(_ref) {
 };
 var CSSOMTag =
   /* #__PURE__ */
-  (function() {
+  (function () {
     function CSSOMTag(target) {
       const element = (this.element = makeStyleTag(target)); // Avoid Edge bug where empty style elements don't create sheets
 
@@ -232,7 +233,7 @@ var CSSOMTag =
 
 var TextTag =
   /* #__PURE__ */
-  (function() {
+  (function () {
     function TextTag(target) {
       const element = (this.element = makeStyleTag(target));
       this.nodes = element.childNodes;
@@ -272,7 +273,7 @@ var TextTag =
 
 var VirtualTag =
   /* #__PURE__ */
-  (function() {
+  (function () {
     function VirtualTag(_target) {
       this.rules = [];
       this.length = 0;
@@ -318,7 +319,7 @@ const BASE_SIZE = 1 << 8;
 
 var DefaultGroupedTag =
   /* #__PURE__ */
-  (function() {
+  (function () {
     function DefaultGroupedTag(tag) {
       this.groupSizes = new Uint32Array(BASE_SIZE);
       this.length = BASE_SIZE;
@@ -386,7 +387,7 @@ var DefaultGroupedTag =
       const endIndex = startIndex + length;
 
       for (let i = startIndex; i < endIndex; i++) {
-        css += `${this.tag.getRule(i)  }\n`;
+        css += `${this.tag.getRule(i)}\n`;
       }
 
       return css;
@@ -422,12 +423,12 @@ const setGroupForId = function setGroupForId(id, group) {
 };
 
 //
-const SELECTOR = `style[${  SC_ATTR  }][${  SC_ATTR_VERSION  }="${  SC_VERSION  }"]`;
+const SELECTOR = `style[${SC_ATTR}][${SC_ATTR_VERSION}="${SC_VERSION}"]`;
 const RULE_RE = /(?:\s*)?(.*?){((?:{[^}]*}|(?!{).*?)*)}/g;
-const MARKER_RE = new RegExp(`^${  SC_ATTR  }\\.g(\\d+)\\[id="([\\w\\d-]+)"\\]`);
+const MARKER_RE = new RegExp(`^${SC_ATTR}\\.g(\\d+)\\[id="([\\w\\d-]+)"\\]`);
 const outputSheet = function outputSheet(sheet) {
   const tag = sheet.getTag();
-  const {length} = tag;
+  const { length } = tag;
   let css = '';
 
   for (let group = 0; group < length; group++) {
@@ -436,19 +437,19 @@ const outputSheet = function outputSheet(sheet) {
     const names = sheet.names.get(id);
     const rules = tag.getGroup(group);
     if (names === undefined || rules.length === 0) continue;
-    const selector = `${SC_ATTR  }.g${  group  }[id="${  id  }"]`;
+    const selector = `${SC_ATTR}.g${group}[id="${id}"]`;
     var content = '';
 
     if (names !== undefined) {
-      names.forEach(function(name) {
+      names.forEach(function (name) {
         if (name.length > 0) {
-          content += `${name  },`;
+          content += `${name},`;
         }
       });
     } // NOTE: It's easier to collect rules and have the marker
     // after the actual rules to simplify the rehydration
 
-    css += `${  rules  }${selector  }{content:"${  content  }"}\n`;
+    css += `${rules}${selector}{content:"${content}"}\n`;
   }
 
   return css;
@@ -520,7 +521,7 @@ const defaultOptions = {
 
 const StyleSheet =
   /* #__PURE__ */
-  (function() {
+  (function () {
     /** Register a group ID to give it an index */
     StyleSheet.registerId = function registerId(id) {
       return getGroupForId(id);
@@ -657,7 +658,7 @@ function format() {
     b.push(c < 0 || arguments.length <= c ? undefined : arguments[c]);
   }
 
-  b.forEach(function(d) {
+  b.forEach(function (d) {
     a = a.replace(/%[a-z]/, d);
   });
   return a;
@@ -678,10 +679,9 @@ function throwStyledComponentsError(code) {
 
   if (process.env.NODE_ENV === 'production') {
     throw new Error(
-      `An error occurred. See https://github.com/styled-components/styled-components/blob/master/packages/styled-components/src/utils/errors.md#${ 
-        code 
-        } for more information.${ 
-        interpolations.length > 0 ? ` Additional arguments: ${  interpolations.join(', ')}` : ''}`
+      `An error occurred. See https://github.com/styled-components/styled-components/blob/master/packages/styled-components/src/utils/errors.md#${code} for more information.${
+        interpolations.length > 0 ? ` Additional arguments: ${interpolations.join(', ')}` : ''
+      }`
     );
   } else {
     throw new Error(format.apply(void 0, [ERRORS[code]].concat(interpolations)).trim());
@@ -803,7 +803,7 @@ function createStylisInstance(_temp) {
     }
   };
 
-  var parseRulesPlugin = insertRulePlugin(function(rule) {
+  var parseRulesPlugin = insertRulePlugin(function (rule) {
     parsingRules.push(rule);
   });
 
@@ -871,7 +871,7 @@ function createStylisInstance(_temp) {
   }
 
   stringifyRules.hash = plugins
-    .reduce(function(acc, plugin) {
+    .reduce(function (acc, plugin) {
       if (!plugin.name) {
         throwStyledComponentsError(15);
       }
@@ -902,7 +902,7 @@ function StyleSheetManager(props) {
 
   var contextStyleSheet = useStyleSheet();
   var styleSheet = useMemo(
-    function() {
+    function () {
       var sheet = contextStyleSheet;
 
       if (props.sheet) {
@@ -925,7 +925,7 @@ function StyleSheetManager(props) {
     [props.disableCSSOMInjection, props.sheet, props.target]
   );
   var stylis = useMemo(
-    function() {
+    function () {
       return createStylisInstance({
         options: {
           prefix: !props.disableVendorPrefixes,
@@ -936,7 +936,7 @@ function StyleSheetManager(props) {
     [props.disableVendorPrefixes, plugins]
   );
   useEffect(
-    function() {
+    function () {
       if (!shallowequal(plugins, props.stylisPlugins)) setPlugins(props.stylisPlugins);
     },
     [props.stylisPlugins]
@@ -960,11 +960,11 @@ function StyleSheetManager(props) {
 
 var Keyframes =
   /*#__PURE__*/
-  (function() {
+  (function () {
     function Keyframes(name, stringifyArgs) {
       var _this = this;
 
-      this.inject = function(styleSheet) {
+      this.inject = function (styleSheet) {
         if (!styleSheet.hasNameForId(_this.id, _this.name)) {
           styleSheet.insertRules(
             _this.id,
@@ -974,7 +974,7 @@ var Keyframes =
         }
       };
 
-      this.toString = function() {
+      this.toString = function () {
         return throwStyledComponentsError(12, String(_this.name));
       };
 
@@ -1018,10 +1018,7 @@ var msPattern = /^ms-/;
  */
 
 function hyphenateStyleName(string) {
-  return string
-    .replace(uppercasePattern, '-$1')
-    .toLowerCase()
-    .replace(msPattern, '-ms-');
+  return string.replace(uppercasePattern, '-$1').toLowerCase().replace(msPattern, '-ms-');
 }
 
 //
@@ -1052,7 +1049,7 @@ var isFalsish = function isFalsish(chunk) {
 var objToCssArray = function objToCssArray(obj, prevKey) {
   var rules = [];
   var keys = Object.keys(obj);
-  keys.forEach(function(key) {
+  keys.forEach(function (key) {
     if (!isFalsish(obj[key])) {
       if (isPlainObject(obj[key])) {
         rules.push.apply(rules, objToCssArray(obj[key], key));
@@ -1159,12 +1156,12 @@ function constructWithOptions(componentConstructor, tag, options) {
   };
   /* If config methods are called, wrap up a new template function and merge options */
 
-  templateFunction.withConfig = function(config) {
+  templateFunction.withConfig = function (config) {
     return constructWithOptions(componentConstructor, tag, _extends({}, options, config));
   };
   /* Modify/inject new props at runtime */
 
-  templateFunction.attrs = function(attrs) {
+  templateFunction.attrs = function (attrs) {
     return constructWithOptions(
       componentConstructor,
       tag,
@@ -1299,7 +1296,7 @@ function isStaticRules(rules) {
 
 var ComponentStyle =
   /*#__PURE__*/
-  (function() {
+  (function () {
     function ComponentStyle(rules, componentId) {
       this.rules = rules;
       this.staticRulesId = '';
@@ -1376,10 +1373,10 @@ var ComponentStyle =
 
 //
 var LIMIT = 200;
-var createWarnTooManyClasses = function(displayName, componentId) {
+var createWarnTooManyClasses = function (displayName, componentId) {
   var generatedClasses = {};
   var warningSeen = false;
-  return function(className) {
+  return function (className) {
     if (!warningSeen) {
       generatedClasses[className] = true;
 
@@ -1412,7 +1409,7 @@ var createWarnTooManyClasses = function(displayName, componentId) {
 };
 
 //
-var determineTheme = function(props, providedTheme, defaultProps) {
+var determineTheme = function (props, providedTheme, defaultProps) {
   if (defaultProps === void 0) {
     defaultProps = EMPTY_OBJECT;
   }
@@ -1451,7 +1448,7 @@ function generateDisplayName(target) {
 }
 
 //
-var generateComponentId = function(str) {
+var generateComponentId = function (str) {
   return generateAlphabeticName(hash(str));
 };
 
@@ -1496,7 +1493,7 @@ function mergeTheme(theme, outerTheme) {
 function ThemeProvider(props) {
   var outerTheme = useContext(ThemeContext);
   var themeContext = useMemo(
-    function() {
+    function () {
       return mergeTheme(props.theme, outerTheme);
     },
     [props.theme, outerTheme]
@@ -1541,7 +1538,7 @@ function useResolvedAttrs(theme, props, attrs) {
   });
 
   var resolvedAttrs = {};
-  attrs.forEach(function(attrDef) {
+  attrs.forEach(function (attrDef) {
     var resolvedAttrDef = attrDef;
     var key;
 
@@ -1729,7 +1726,7 @@ function createStyledComponent(target, options, rules) {
     );
   } // $FlowFixMe
 
-  WrappedStyledComponent.toString = function() {
+  WrappedStyledComponent.toString = function () {
     return '.' + WrappedStyledComponent.styledComponentId;
   };
 
@@ -1896,7 +1893,7 @@ var styled = function styled(tag) {
   return constructWithOptions(createStyledComponent, tag);
 }; // Shorthands for all valid HTML Elements
 
-domElements.forEach(function(domElement) {
+domElements.forEach(function (domElement) {
   styled[domElement] = styled(domElement);
 });
 
@@ -1904,7 +1901,7 @@ domElements.forEach(function(domElement) {
 
 var GlobalStyle =
   /*#__PURE__*/
-  (function() {
+  (function () {
     function GlobalStyle(rules, componentId) {
       this.rules = rules;
       this.componentId = componentId;
@@ -1979,8 +1976,8 @@ function createGlobalStyle(strings) {
       globalStyle.renderStyles(instance, context, styleSheet, stylis);
     }
 
-    useEffect(function() {
-      return function() {
+    useEffect(function () {
+      return function () {
         return globalStyle.removeStyles(instance, styleSheet);
       };
     }, EMPTY_ARRAY);
@@ -2019,11 +2016,11 @@ function keyframes(strings) {
 
 var ServerStyleSheet =
   /*#__PURE__*/
-  (function() {
+  (function () {
     function ServerStyleSheet() {
       var _this = this;
 
-      this._emitSheetCSS = function() {
+      this._emitSheetCSS = function () {
         var css = _this.instance.toString();
 
         var nonce = getNonce();
@@ -2036,7 +2033,7 @@ var ServerStyleSheet =
         return '<style ' + htmlAttr + '>' + css + '</style>';
       };
 
-      this.getStyleTags = function() {
+      this.getStyleTags = function () {
         if (_this.sealed) {
           return throwStyledComponentsError(2);
         }
@@ -2044,20 +2041,21 @@ var ServerStyleSheet =
         return _this._emitSheetCSS();
       };
 
-      this.getStyleElement = function() {
+      this.getStyleElement = function () {
         var _props;
 
         if (_this.sealed) {
           return throwStyledComponentsError(2);
         }
 
-        var props = ((_props = {}),
-        (_props[SC_ATTR] = ''),
-        (_props[SC_ATTR_VERSION] = SC_VERSION),
-        (_props.dangerouslySetInnerHTML = {
-          __html: _this.instance.toString(),
-        }),
-        _props);
+        var props =
+          ((_props = {}),
+          (_props[SC_ATTR] = ''),
+          (_props[SC_ATTR_VERSION] = SC_VERSION),
+          (_props.dangerouslySetInnerHTML = {
+            __html: _this.instance.toString(),
+          }),
+          _props);
         var nonce = getNonce();
 
         if (nonce) {
@@ -2074,7 +2072,7 @@ var ServerStyleSheet =
         ];
       };
 
-      this.seal = function() {
+      this.seal = function () {
         _this.sealed = true;
       };
 
@@ -2116,9 +2114,9 @@ var ServerStyleSheet =
 //
 // but the old build system tooling doesn't support the syntax
 
-var withTheme = function(Component) {
+var withTheme = function (Component) {
   // $FlowFixMe This should be React.forwardRef<Config, Instance>
-  var WithTheme = React.forwardRef(function(props, ref) {
+  var WithTheme = React.forwardRef(function (props, ref) {
     var theme = useContext(ThemeContext); // $FlowFixMe defaultProps isn't declared so it can be inferrable
 
     var defaultProps = Component.defaultProps;
