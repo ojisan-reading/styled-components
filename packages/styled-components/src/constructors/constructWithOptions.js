@@ -11,6 +11,8 @@ import type { Target } from '../types';
  * @param {*} componentConstructor ../models/StyledComponentが渡される
  * @param {*} tag
  * @param {*} options
+ *
+ * @予想：これの返り値は tag template literarlを受け取れる。componentConstructorがその招待？
  */
 export default function constructWithOptions(
   componentConstructor: Function,
