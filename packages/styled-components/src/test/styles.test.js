@@ -117,6 +117,27 @@ describe('with styles', () => {
     `);
   });
 
+  it('なぜかhoverに&なくても大丈夫', () => {
+    const Comp = styled.div`
+      :hover {
+        color: silver;
+      }
+
+      &:hover {
+        color: silver;
+      }
+    `;
+    TestRenderer.create(
+      <React.Fragment>
+        <Comp color="white" />
+        <Comp color="red" />
+      </React.Fragment>
+    );
+    expectCSSMatches(`
+    .b:hover{ color:silver; } .b:hover{ color:silver; } 
+    `);
+  });
+
   it('should handle inline style objects', () => {
     const rule1 = {
       backgroundColor: 'blue',

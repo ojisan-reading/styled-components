@@ -9,7 +9,8 @@ export const SC_ATTR =
 
 export const SC_ATTR_ACTIVE = 'active';
 export const SC_ATTR_VERSION = 'data-styled-version';
-export const SC_VERSION = __VERSION__;
+// TODO: FIXME
+export const SC_VERSION = 'JEST_MOCK_VERSION';
 export const SPLITTER = '/*!sc*/\n';
 
 export const IS_BROWSER = typeof window !== 'undefined' && 'HTMLElement' in window;
